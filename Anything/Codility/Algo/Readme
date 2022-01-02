@@ -1,0 +1,10 @@
+* Whenever you want to find out the sub array and target sum from array
+    Two approach:-
+        Take differences (sum - target)
+        if (sum-target) exists - iterate
+        Store the sum with diff
+
+
+        if sum > target, subtract
+        sum == target
+        sum +=target
