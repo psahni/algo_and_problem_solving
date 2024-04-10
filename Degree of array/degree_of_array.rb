@@ -2,7 +2,7 @@
 class DegreeOfArray
   def initialize
     @degree = 0
-    @array = [1, 2, 2, 3, 1, 4, 2]
+    @array = [1, 2, 2, 3, 1, 4, 2, 4, 4]
     @hash_map = Hash.new(0)
     @first_seen = {}
     @last_seen = {}
@@ -31,16 +31,40 @@ class DegreeOfArray
     end
   end
 
+  def collect_sub_array(start_pos, end_pos)
+    @arr = []
+    while start_pos <= end_pos
+      @arr << @array[start_pos]
+      start_pos +=1
+    end
+    @arr
+  end
+
   def find_min_length_array
-     distances = {}
+     subarrays = {}
+     # distances = {}
      @array.each_with_index do |element, i|
         if (@hash_map[element.to_i] === @degree)
            last_seen = i
-           distance = last_seen - @first_seen[element] + 1
-           distances[element] = distance
+           @last_seen[element] =i
+          #  distance = last_seen - @first_seen[element] + 1
+          #  distances[element] = distance
+           start_pos = @first_seen[element]
+           end_pos = @last_seen[element]
+           subarrays[element] = collect_sub_array(start_pos, end_pos)
         end
      end
-     distances.values.min
+     len = 0
+     element = 0
+     subarrays.each_key do |key|
+      if subarrays[key].length > 0
+        len = subarrays[key].length
+        element = key
+      end
+     end
+     puts "Min sub array is:-"
+     p subarrays[element]
+     subarrays[element].length
   end
 
   def main
