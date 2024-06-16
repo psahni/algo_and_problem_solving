@@ -4,6 +4,7 @@ def isPalindrome(num)
   while (temp_num > 0)
     last_digit = temp_num%10
     sum = sum*10 + last_digit
+    p sum
     temp_num = temp_num/10
   end
 

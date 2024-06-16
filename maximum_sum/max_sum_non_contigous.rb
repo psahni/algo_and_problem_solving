@@ -19,3 +19,5 @@ end
 
 arr = [-2, 0, -4, 6, 1, 2, -3, 0, 4]
 p MaxSumNonContiguous.new(arr).find
+
+# filter all non negative numbers, and add them. Simple

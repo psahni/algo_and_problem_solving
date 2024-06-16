@@ -1,26 +1,26 @@
 class SubArrays
 
   def initialize(arr, target)
-    @arr_sums = {
+    @subarrays_count = {
       0 => 1
     }
-    @sum = 0
-    @result = 0
+    @current_sum = 0
+    @num_of_subarrays = 0
     @arr = arr
     @target = target
   end
 
   def find
     @arr.each_with_index do |a, i|
-      @sum += @arr[i]
+      @current_sum += @arr[i]
 
-      if (@arr_sums[@sum - @target])
-        @result += @arr_sums[@sum - @target]
+      if (@subarrays_count[@current_sum - @target])
+        @num_of_subarrays += @subarrays_count[@current_sum - @target]
       end
 
-      @arr_sums[@sum] = (@arr_sums[@sum] || 0) + 1
+      @subarrays_count[@current_sum] = (@subarrays_count[@current_sum] || 0) + 1
     end
-    @result
+    @num_of_subarrays
   end
 end
 
