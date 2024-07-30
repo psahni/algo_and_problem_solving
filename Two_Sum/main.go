@@ -14,7 +14,7 @@ func main() {
 
 func findTarget(arr []int, target int) {
 	diffMap := make(map[int]int)
-	var diff int
+	var diff int // diff is the other num
 	for pos, val := range arr {
 		diff = target - val
 		_, ok := diffMap[diff]

@@ -2,6 +2,7 @@
 
 $input_data = ''
 
+
 ARGF.each_line do |line|
     $input_data += line
 end

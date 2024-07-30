@@ -13,7 +13,7 @@ def reverse(arr)
 end
 
 arr = [7, 1, 3, 4, 5]
-# 5, 1, 3, 4, 5
+# 5, 1, 3, 4, 7
 #reverse(arr) # 5, 7, 1, 3, 4
 
 def rotate(arr)
