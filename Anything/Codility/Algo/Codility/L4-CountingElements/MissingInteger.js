@@ -14,3 +14,5 @@ for(let i = 0; i < A.length; i++) {
 
  return x < 1 ? 1 : x;
 }
+
+// [1, 2, 3, 5]

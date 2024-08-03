@@ -34,7 +34,9 @@ func checkAnagrams(s1 string, s2 string) {
 
 func sortString(str string) string {
 	str = removeSpaces(string(str))
+	fmt.Println("str = ", str)
 	word := []rune(strings.ToLower(str))
+	fmt.Println("word = ", word)
 	sort.Slice(word, func(i, j int) bool { return word[i] < word[j] })
 
 	return string(word)
