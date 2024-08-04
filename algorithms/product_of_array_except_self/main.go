@@ -25,12 +25,14 @@ func main() {
 }
 
 /*
-	Other solution is find prefix and suffix product
+	Solution 2
 
+	Other solution is find prefix and suffix product
 	prefix product = [1, 1, 2, 6]	  // Prefix of 1 is 1, prefix of 2 is 1, prefix of 3 is 2
 	suffix product = [24, 12, 4, 1] // Suffix of 4 is 1, suffix of 3 is 4 and so on
 	O(n) complexity
 
+	Solution 3
 	You can do it in 1 array too. Just find the prefix array and then keep multiplying the
 	number by suffix num (starting from end of array)
 	[1, 1, 2, 6]
