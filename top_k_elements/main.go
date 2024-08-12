@@ -50,3 +50,33 @@ func main() {
 
 	fmt.Println(frequencyArr)
 }
+
+
+/*
+  scores := map[string]int{
+      "Bob": 90,
+      "Smith": 95,
+      "Alex": 85,
+      "Michel": 87,
+      "Shemar": 92,
+  }
+  
+  scores_values := make(map[int]string)
+  sorted_vals := make([]int, 0)
+  for k, v := range scores {
+      scores_values[v] = k
+      sorted_vals = append(sorted_vals, v)
+  }
+  
+  sort.Slice(sorted_vals, func(i, j int) bool {
+      return sorted_vals[i] > sorted_vals[j]
+  }) 
+  
+  fmt.Println(sorted_vals)
+  
+  for _, v := range sorted_vals {
+      fmt.Println(scores_values[v], " => ", v)
+  }
+  
+
+*/
