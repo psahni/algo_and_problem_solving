@@ -6,18 +6,19 @@ function lengthOfLongestSubstring(str) {
   for (let right = 0;  right < str.length; right++) {
     let char = str[right]
 
-    if (!chars[char]) {
+    if (typeof(chars[char]) === "undefined") {
       chars[char] = right
     } else {
       // Duplicate found
       left = Math.max(left, chars[char] +  1) // Go to next index of original index of duplicate
       chars[char] = right
     }
+    // console.log(left, right, right - left + 1)
     length = Math.max(length, right - left + 1) // Calculate max length after every iteration
   }
 
   return length
 }
 
-const ans = lengthOfLongestSubstring("pwwkew") // "abba"
+const ans = lengthOfLongestSubstring("bbbbb") // "abba"
 console.log("length of longest substring = ", ans)
