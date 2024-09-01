@@ -2,9 +2,12 @@
   THIS IS A SLIDING WINDOW PROBLEM
 */
 
-// Two things to remember
-// 1. Window Length 2. MaxFrequency or count of repeating chars
-// The take the difference to find the non repeating chars
+// Things to remember
+// 1. Save it into hash, keep counting frequency
+// 2  Find max frequency at any step
+// 3. Find window length (right - left + 1) 
+// 4. Find non repeating chars (window length - max freq)
+// 5. Compare it with 'k', if true, move the window
 // Compare it with target k
 
 function longestRepeatingCharacterReplacement(str, k) {
@@ -27,7 +30,7 @@ function longestRepeatingCharacterReplacement(str, k) {
     const nonRepeatingChar = windowLength - maxRepeatCount
 
     if (nonRepeatingChar > k) {
-      chars[char] =  chars[char] - 1
+      chars[left] =  chars[left] - 1
       left += 1
     }
 

@@ -1,3 +1,6 @@
+// As soon as you find the duplicate, move the left pointer to next of duplicate
+// right pointer will move automatically through loop
+
 function lengthOfLongestSubstring(str) {
   let left = 0
   let length = 0
@@ -22,3 +25,4 @@ function lengthOfLongestSubstring(str) {
 
 const ans = lengthOfLongestSubstring("bbbbb") // "abba"
 console.log("length of longest substring = ", ans)
+
