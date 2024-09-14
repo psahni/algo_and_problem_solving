@@ -10,7 +10,7 @@ function lengthOfLongestSubstring(str) {
     let char = str[right]
 
     if (typeof(chars[char]) === "undefined") {
-      chars[char] = right
+      chars[char] = right // We are storing indexes
     } else {
       // Duplicate found
       left = Math.max(left, chars[char] +  1) // Go to next index of original index of duplicate

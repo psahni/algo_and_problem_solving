@@ -13,21 +13,17 @@
 function longestRepeatingCharacterReplacement(str, k) {
   let left = 0
   let length = 0
-  let maxRepeatCount = 0
+  let maxRepeatChar = 0
   const chars = {}
 
   for (let right = 0; right < str.length; right++) {
     const char = str[right]
-    if (typeof(chars[char]) == "undefined") {
-      chars[char] = 1
-    } else {
-      chars[char] += 1
-    }
+ 
+    chars[char] = (typeof(chars[char]) == "undefined") ? 1  : chars[char]++
     
-    
-    maxRepeatCount = Math.max(maxRepeatCount, chars[char])
+    maxRepeatChar = Math.max(maxRepeatChar, chars[char])
     let windowLength = right - left + 1
-    const nonRepeatingChar = windowLength - maxRepeatCount
+    const nonRepeatingChar = windowLength - maxRepeatChar
 
     if (nonRepeatingChar > k) {
       chars[left] =  chars[left] - 1
