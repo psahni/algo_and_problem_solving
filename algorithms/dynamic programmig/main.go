@@ -21,7 +21,7 @@ func main() {
 				continue
 			}
 
-			remaining := amount - coinVal
+			remaining := amount - coinVal // [3,5,6] amount = 6 | 6-3 = 3 counters[3], 6-5 = 1 counters[1], 6-6 = 0 counters[0]
 
 			if counters[remaining] == -1 {
 				continue

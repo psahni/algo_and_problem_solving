@@ -1,3 +1,5 @@
+// 3. Longest Substring Without Repeating Characters
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 // As soon as you find the duplicate, move the left pointer to next of duplicate
 // right pointer will move automatically through loop
 
@@ -26,3 +28,37 @@ function lengthOfLongestSubstring(str) {
 const ans = lengthOfLongestSubstring("bbbbb") // "abba"
 console.log("length of longest substring = ", ans)
 
+/**
+ * Retry: Written again
+ * // 3. Longest Substring Without Repeating Characters
+
+function LongestNonRepeatingChars(str) {
+  let left = 0;
+  let right = 0;
+  const chars = {};
+  let length=0;
+
+  for (let right=0; right < str.length; right++) {
+    const s = str[right];
+
+    if (!chars[s]) {
+      chars[s] = 1;
+    } else {
+      chars[s] += 1;
+    }
+
+    console.log(chars);
+    if (chars[s] > 1) {
+      left = right;
+      chars[s] = chars[s] - 1;
+      continue;
+    }
+
+    length = Math.max(length, right-left+1);
+  }
+  return length;
+}
+
+const l = LongestNonRepeatingChars("pwwkew");
+console.log(l);
+ */
