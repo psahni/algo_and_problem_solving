@@ -8,7 +8,7 @@ import (
 
 func SortString(str string) string {
 	str = removeSpaces(string(str))
-	word := []rune(strings.ToLower(str)) // []rune(string)
+	word := []byte(strings.ToLower(str)) // []rune(string)
 
 	sort.Slice(word, func(i int, j int) bool {
 		return word[i] < word[j]
