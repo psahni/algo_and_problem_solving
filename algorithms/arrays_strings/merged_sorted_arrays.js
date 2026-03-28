@@ -1,8 +1,7 @@
 // https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
 // Problem 88
 
-function Merge(arr1, arr2) {
-  
+function Merge(arr1, arr2) {  
   let i = 2;
   let j = 2;
   let k = 5;

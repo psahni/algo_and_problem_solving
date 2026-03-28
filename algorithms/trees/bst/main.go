@@ -53,6 +53,48 @@ func _insert(node *TreeNode, val int) {
 	}
 }
 
+func (b *BST) delete(val int) {
+	b.root = _delete(b.root, val)
+}
+
+func _delete(node *TreeNode, val int) *TreeNode {
+	if node == nil {
+		return nil
+	}
+
+	if val < node.value {
+		node.left = _delete(node.left, val)
+	} else if val > node.value {
+		node.right = _delete(node.right, val)
+	} else { // Node with one children
+		if node.left == nil {
+			return node.right
+		} else if node.right == nil {
+			return node.left
+		}
+	}
+
+	// Node with two children
+	// Case 3: Node has two children
+	// Find the smallest value in the right subtree (successor)
+	successor := findMin(node.right)
+	// // Copy successor's value to current node, Delete the successor
+	node.value = successor.value
+
+	// node.right = _delete(node.right, successor.value)
+
+	return node
+}
+
+// findMin finds the node with the minimum value in the given tree
+func findMin(node *TreeNode) *TreeNode {
+	current := node
+	for current != nil && current.left != nil {
+		current = current.left
+	}
+	return current
+}
+
 func (b *BST) inOrderTraversal(node *TreeNode) {
 	if node != nil {
 		b.inOrderTraversal(node.left)
@@ -76,6 +118,30 @@ func (b *BST) postOrderTraversal(node *TreeNode) {
 		fmt.Print(node.value, " ")
 	}
 }
+
+func (b *BST) kthSmallest(k int) int {
+	node := b.root
+	stack := make([]*TreeNode, 0, 0)
+	for true {
+		for node != nil {
+			stack = append(stack, node)
+			node = node.left
+		}
+
+		node = stack[len(stack)-1]
+		stack = stack[0 : len(stack)-1]
+		k = k - 1
+		if k == 0 {
+			break
+		}
+		node = node.right
+	}
+
+	if k == 0 {
+		return node.value
+	}
+	return -1
+} // TC: O(n), SC: O(n)
 
 func (b *BST) search(node *TreeNode, val int) *TreeNode {
 	if node == nil || node.value == val {
@@ -101,13 +167,20 @@ func main() {
 		bst.insert(val)
 	}
 
-	// fmt.Println("In order")
-	// bst.inOrderTraversal(bst.root)
+	fmt.Println("In order")
+	bst.inOrderTraversal(bst.root)
 	// fmt.Println("\nPre order")
 	// bst.preOrderTraversal(bst.root)
 	// fmt.Println("\nPost order")
 	// bst.postOrderTraversal(bst.root)
 
-	ans := bst.search(bst.root, 6)
-	fmt.Println(ans)
+	// ans := bst.search(bst.root, 6)
+	// fmt.Println(ans)
+
+	// bst.delete(6)
+	// fmt.Println("\nIn order")
+	// bst.inOrderTraversal(bst.root)
+	fmt.Println("\nkth smallest\n")
+	a := bst.kthSmallest(3)
+	fmt.Println("kth = ", a)
 }

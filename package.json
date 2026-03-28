@@ -1,0 +1,14 @@
+{
+  "name": "algo_and_problem_solving",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "ts-node": "^10.9.0"
+  }
+}

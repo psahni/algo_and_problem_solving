@@ -1,0 +1,6 @@
+Leet code: 2624 
+https://leetcode.com/problems/snail-traversal/description/
+
+https://onecompiler.com/javascript/42x5p65qu
+
+https://onecompiler.com/go/42x5qb2ub
